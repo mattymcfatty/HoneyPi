@@ -92,5 +92,5 @@ TODO: Double check that the SMB share is not visible when browsing network (in w
     * sudo pico /etc/psad/signatures 
       * alert tcp $EXTERNAL_NET any -> $HOME_NET 445 (msg:"SMB Connection attempt"; flags:S; reference:url,isc.sans.org/port_details.php?port=139; reference:url,secunia.com/advisories/20107; classtype:attempted-admin; psad_id:31331; psad_dl:2;) 
       * alert tcp $EXTERNAL_NET any -> $HOME_NET 139 (msg:"SMB Connection attempt"; flags:S; reference:url,isc.sans.org/port_details.php?port=139; reference:url,secunia.com/advisories/20107; classtype:attempted-admin; psad_id:31332; psad_dl:2;)
-  
+16. Install and configure logrotate so that the iptables logs don't fill up the drive  
   
