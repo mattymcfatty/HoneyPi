@@ -1,0 +1,9 @@
+web service and gui to monitor the honeypots on your network 
+  Client to manage passwords 
+  Client to manage notification emails 
+https://community.cymmetria.com/documentation 
+Ability for the client to send a reverse shell out to us so we can jump on the network to start investigating 
+What if RPI dies?  Need a heartbeat 
+What if it get's pwned? 
+Try to attrack a real hacker http://www.theregister.co.uk/2013/03/20/scada_honeypot_research/ see if the rpi honepot notifies me. 
+Make the PI look like some SCATA device to attract a real hacker
