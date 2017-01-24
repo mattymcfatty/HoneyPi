@@ -34,11 +34,13 @@ TODO: Double check that the SMB share is not visible when browsing network (in w
     * MAIL_ERROR_PREFIX           [CANARY-SCAN-error]; 
     * MAIL_FATAL_PREFIX           [CANARY-SCAN-fatal]; 
 6. Make iptables settings persisitent
-  * udo apt-get install iptables-persistent 
+  * sudo apt-get install iptables-persistent 
 7. Change iptables to work for psad
   * sudo iptables -A INPUT -j LOG 
   * sudo iptables -A FORWARD -j LOG 
   * sudo iptables-save
+   * Also, added mystartup.sh to /etc/init.d (attached) 
+   * not 100% sure if this step is necessary (iptables-persistent might do the trick)
 8. Install SSMTP for email alerts
   1. sudo apt-get install ssmtp 
   2. sudo pico /etc/ssmtp/ssmtp.conf 
