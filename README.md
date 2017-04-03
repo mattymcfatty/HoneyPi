@@ -4,9 +4,9 @@ It is astonishingly easy as an attacker to move around on most networks undetect
 
 ## What if there were a cheap Raspberry Pi device you could plug into your network that masquerades as a juicy target to hackers? 
 
-HoneyPi attempts to offer a reliable indicator of compromise with little to no setup or maintenance costs. There are tons of honey pot options out there, but we leveraged our experience in penetration testing to answer the question *What sorts of activities could be flagged that we generally do when attacking a network?*
+HoneyPi attempts to offer a reliable indicator of compromise with little to no setup or maintenance costs. There are tons of honeypot options out there, but we leveraged our experience in penetration testing to answer the question *What sorts of activities could be flagged that we generally do when attacking a network?*
 
-That is why HoneyPi tries to keep it simple compared to other honey pots. HoneyPi only flags the three surefire triggers that would catch most attackers:
+That is why HoneyPi tries to keep it simple compared to other honeypots. HoneyPi only flags the three surefire triggers that would catch most attackers:
  1. Port Scanning Activities
  2. RDP Connection Attempts
  3. SMB Connection Attempts
