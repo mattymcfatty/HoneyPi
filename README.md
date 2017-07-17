@@ -20,7 +20,8 @@ You'll need a Raspberry Pi running Rasbian.
 From the Pi, do this:
  1. wget https://github.com/mattymcfatty/HoneyPi/archive/v01.zip
  2. unzip v01.zip
- 3. sudo ./honeyPiInstaller.sh
- 4. Follow the prompts.
+ 3. cd HoneyPi-01
+ 4. sudo ./honeyPiInstaller.sh
+ 5. Follow the prompts.
  
 Please note: Installing this will do some things to your Raspberry Pi. Most notably, it will change your iptables. Please proceed with caution if you are using this Raspberry Pi for other purposes.
