@@ -38,7 +38,7 @@ echo $sneakyname > /etc/hostname
 
 ####Install PSAD ###
 whiptail --infobox "Installing a bunch of software like the log monitoring service and other dependencies...\n" 20 60
-apt-get install psad ssmtp python-twisted iptables-persistent libnotify-bin fwsnort
+apt-get -y install psad ssmtp python-twisted iptables-persistent libnotify-bin fwsnort
 
 ###Choose Notification Option###
 OPTION=$(whiptail --menu "Choose how you want to get notified:" 20 60 5 "email" "Send me an email" "script" "Execute a script" "blink" "Blink a light on your Raspberry Pi" 3>&2 2>&1 1>&3)
