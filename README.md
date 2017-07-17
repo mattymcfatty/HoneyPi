@@ -12,3 +12,15 @@ That is why HoneyPi tries to keep it simple compared to other honeypots. HoneyPi
  3. Telnet Connection Attempts
 
 Wrap up this simplicity in a way that is designed to be deployed on a RaspberryPi and you've got a simple honeypot that you can add to your network to get insight when you are under attack.
+
+## Installation
+
+You'll need a Raspberry Pi running Rasbian.
+
+From the Pi, do this:
+ 1. wget thezipfile
+ 2. unzip thezipfile
+ 3. sudo ./honeyPiInstaller.sh
+ 4. Follow the prompts.
+ 
+Please note: Installing this will do some things to your Raspberry Pi. Most notably, it will change your iptables. Please proceed with caution if you are using this Raspberry Pi for other purposes.
