@@ -8,7 +8,7 @@ HoneyPi attempts to offer a reliable indicator of compromise with little to no s
 
 That is why HoneyPi tries to keep it simple compared to other honeypots. HoneyPi only flags the three surefire triggers that would catch most attackers:
  1. Port Scanning Activities
- 2. RDP Connection Attempts
- 3. SMB Connection Attempts
+ 2. FTP Connection Attempts
+ 3. Telnet Connection Attempts
 
 Wrap up this simplicity in a way that is designed to be deployed on a RaspberryPi and you've got a simple honeypot that you can add to your network to get insight when you are under attack.
