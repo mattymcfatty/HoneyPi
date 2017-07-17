@@ -21,6 +21,7 @@ From the Pi, do this:
  1. wget https://github.com/mattymcfatty/HoneyPi/archive/v01.zip
  2. unzip v01.zip
  3. cd HoneyPi-01
+ 4. chmod +x *.sh
  4. sudo ./honeyPiInstaller.sh
  5. Follow the prompts.
  
