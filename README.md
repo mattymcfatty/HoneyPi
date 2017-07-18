@@ -18,9 +18,9 @@ Wrap up this simplicity in a way that is designed to be deployed on a RaspberryP
 You'll need a Raspberry Pi running Rasbian.
 
 From the Pi, do this:
- 1. wget https://github.com/mattymcfatty/HoneyPi/archive/v01.zip
- 2. unzip v01.zip
- 3. cd HoneyPi-01
+ 1. wget https://github.com/mattymcfatty/HoneyPi/archive/master.zip
+ 2. unzip master.zip
+ 3. cd HoneyPi-master
  4. chmod +x *.sh
  4. sudo ./honeyPiInstaller.sh
  5. Follow the prompts.
