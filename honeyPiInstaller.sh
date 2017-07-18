@@ -35,6 +35,7 @@ fi
 ####Name the host something enticing ###
 sneakyname=$(whiptail --inputbox "Let's name your honeyPi something enticing like 'SuperSensitiveServer'. Well maybe not that obvious, but you get the idea. Remember, hostnames cannot contain spaces or most special chars. Best to keep it to just alphanumeric and less thaann 24 characters." 20 60 3>&1 1>&2 2>&3)
 echo $sneakyname > /etc/hostname
+echo "127.0.0.1 $sneakyname" >> /etc/hostse
 
 ####Install PSAD ###
 whiptail --infobox "Installing a bunch of software like the log monitoring service and other dependencies...\n" 20 60
