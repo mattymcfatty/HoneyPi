@@ -102,8 +102,6 @@ service netfilter-persistent save
 service netfilter-persistent restart
 psad --sig-update
 service psad restart
-cp $confname /etc/honeypot/honeyd.conf
-/etc/init.d/honeyd restart
 cp mattshoneypot.py /root/honeyPi
 (crontab -l 2>/dev/null; echo "@reboot python /root/honeyPi/mattshoneypot.py &") | crontab -
 python /root/honeyPi/mattshoneypot.py &
