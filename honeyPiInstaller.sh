@@ -28,7 +28,7 @@ fi
 if whiptail --yesno "Let's install some updates. Answer 'no' if you are just experimenting and want to save some time (updates might take 15 minutes or more). Otherwise, shall we update now?" 20 60
 then
  apt-get update
- apt-get upgrade
+ apt-get dist-upgrade
 fi
 
 
@@ -106,5 +106,5 @@ cp mattshoneypot.py /root/honeyPi
 (crontab -l 2>/dev/null; echo "@reboot python /root/honeyPi/mattshoneypot.py &") | crontab -
 python /root/honeyPi/mattshoneypot.py &
 ifconfig
-printf "\n \n ok. should be good to go. Now go portscan this honeyPi and see if you get an alert!\n"
+printf "\n \n ok, now reboot and you should be good to go. Then, go portscan this honeyPi and see if you get an alert!\n"
 
