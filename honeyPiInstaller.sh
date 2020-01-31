@@ -8,7 +8,7 @@ then
 fi
 
 ####Disclaimer!###
-if whiptail --yesno "Hey Hey! You're about to install honeyPi to turn this Raspberry Pi into an IDS/honeypot. Congratulations on being so clever. This install process will change some things on your Pi. Most notably, it will flush your iptables and turn up logging. Select 'Yes' if you're cool with all that or 'No' to stop now." 20 60
+if whiptail --yesno "Hey Hey! You're about to install honeyPi to turn this Raspberry Pi into an IDS/honeypot. Congratulations on being so clever! This install process will change some things on your Pi. Most notably, it will flush your iptables and turn up logging. There is no UNINSTALL script, so think hard about not doing this if you plan to use your Pi for other things. Select 'Yes' if you're cool with all that or 'No' to stop now." 20 60
 then
   echo "continue"
 else
@@ -39,7 +39,7 @@ echo "127.0.0.1 $sneakyname" >> /etc/hosts
 
 ####Install PSAD ###
 whiptail --infobox "Installing a bunch of software like the log monitoring service and other dependencies...\n" 20 60
-apt-get -y install psad ssmtp python-twisted iptables-persistent libnotify-bin fwsnort raspberrypi-kernel-headers
+apt-get -y install psad msmtp msmtp-mta python-twisted iptables-persistent libnotify-bin fwsnort raspberrypi-kernel-headers
 
 ###Choose Notification Option###
 OPTION=$(whiptail --menu "Choose how you want to get notified:" 20 60 5 "email" "Send me an email" "script" "Execute a script" "blink" "Blink a light on your Raspberry Pi" 3>&2 2>&1 1>&3)
@@ -52,13 +52,17 @@ check=1
 case $OPTION in
 	email)
 		emailaddy=$(whiptail --inputbox "Mmmkay. Email is a pain to set up. We have defaults for gmail so use that if you have it. What's your email address?" 20 60 3>&1 1>&2 2>&3)
-		sed -i "s/xemailx/$emailaddy/g" ssmtp.conf
-		cp ssmtp.conf /etc/ssmtp/ssmtp.conf
+        	msmtp --configure $emailaddy > msmtprc
+        	echo "account default : $emailaddy" >> msmtprc
+        	sed -i 's/passwordeval.*/password XXX/g' msmtprc
+        	sed -i 's/# -.*/### Just replace XXX with your app password/g' msmtprc
+        	sed -i 's/#  .*/### and press Ctrl-X to quit and save/g' msmtprc
+        	cp msmtprc /etc/
 		check=30
-		whiptail --msgbox "Now, create an 'App Password' for your gmail account (google it if you don't know how). Because we don't want to assign your password to any variables, you have to manually edit the smtp configuration file on the next screen. 'AuthUser' is the first part of your email address before the @. Save and exit the editor and I'll see you back here." 20 60
-		pico /etc/ssmtp/ssmtp.conf
+		whiptail --msgbox "Now, create an 'App Password' for your gmail account (google it if you don't know how). Because we don't want to assign your password to any variables, you have to manually edit the smtp configuration file on the next screen. Save and exit the editor and I'll see you back here." 20 60
+		pico /etc/msmtprc
 		whiptail --msgbox "Welcome back! Well Done! Here comes a test message to your email address..." 20 60
-		echo "test message from honeyPi" | ssmtp -vvv $emailaddy
+		echo "test message from honeyPi" | msmtp -vvv $emailaddy
 		if whiptail --yesno "Cool. Now wait a couple minutes and see if that test message shows up. 'Yes' to continue or 'No' to exit and mess with your smtp config." 20 60
  		then
   			echo "Continue"
@@ -106,5 +110,5 @@ cp mattshoneypot.py /root/honeyPi
 (crontab -l 2>/dev/null; echo "@reboot python /root/honeyPi/mattshoneypot.py &") | crontab -
 python /root/honeyPi/mattshoneypot.py &
 ifconfig
-printf "\n \n ok, now reboot and you should be good to go. Then, go portscan this honeyPi and see if you get an alert!\n"
+printf "\n \n ok, now reboot and you should be good to go. Then, go portscan this honeyPi from another machine and see if you get an alert!\n"
 
