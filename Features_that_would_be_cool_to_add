@@ -6,4 +6,4 @@ Ability for the client to send a reverse shell out to us so we can jump on the n
 What if RPI dies?  Need a heartbeat 
 What if it get's pwned? 
 Try to attract a real hacker http://www.theregister.co.uk/2013/03/20/scada_honeypot_research/ see if the rpi honepot notifies me. 
-Make the PI look like some SCATA device to attract a real hacker
+Make the PI look like some SCADA device to attract a real hacker
